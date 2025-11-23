@@ -24,12 +24,10 @@ notes:
 EOF
 }
 
-
 if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
   show_help
   exit 0
 fi
-
 
 if [[ $EUID -ne 0 ]]; then
   echo "please run as root (sudo ddfast ...)"
@@ -39,15 +37,12 @@ fi
 SRC="${1:-}"
 DST="${2:-}"
 
-
 if [[ -z "$SRC" || -z "$DST" ]]; then
   show_help
   exit 1
 fi
 
-
 [[ "$DST" != /dev/* ]] && DST="/dev/$DST"
-
 
 if [[ ! -f "$SRC" ]]; then
   echo "error: source file not found: $SRC"
@@ -58,6 +53,13 @@ if [[ ! -b "$DST" ]]; then
   echo "error: invalid target block device: $DST"
   exit 1
 fi
+
+
+echo
+echo "────────────────────────────────────────────"
+echo "Target device info (verify carefully!):"
+lsblk "$DST"
+echo "────────────────────────────────────────────"
 
 
 SYS_DRIVES=("sda" "nvme0n1" "mmcblk0")
@@ -72,7 +74,6 @@ else
   [[ "$CONFIRM" =~ ^[Yy]$ ]] || { echo "aborted."; exit 1; }
 fi
 
-
 SRC_SIZE=$(stat -c%s "$SRC")
 DST_SIZE=$(blockdev --getsize64 "$DST" 2>/dev/null || echo 0)
 
@@ -86,14 +87,12 @@ echo " target: $DST ($DST_H)"
 echo "────────────────────────────────────────────"
 echo
 
-
 echo "unmounting target partitions..."
 lsblk -ln -o NAME,MOUNTPOINT "$DST" | awk '$2!=""{print $1}' | while read -r part; do
   umount "/dev/$part" 2>/dev/null || true
 done
 
 sync
-
 
 echo "flashing image... this might take a while."
 if command -v pv >/dev/null 2>&1; then
