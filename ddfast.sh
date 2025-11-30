@@ -1,5 +1,4 @@
-  GNU nano 8.5                                                                                                                                                                                                                               ddfast.sh                                                                                                                                                                                                                                          
-#!/usr/bin/env bash
+#!/usr/bin/env bash                                                                                                                                                                                               
 
 set -euo pipefail
 
@@ -28,7 +27,7 @@ rainbow_ascii() {
 rainbow_ascii
 
 echo
-lsblk
+lsblk -o name,type,model,size,label,mountpoint
 echo
 echo -n "choose target block (example: sdb): "
 read -r BLK
