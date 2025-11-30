@@ -16,8 +16,9 @@ sudo chmod +x /usr/local/bin/ddfast
 ### Example Usage
 
 ```bash
-sudo ddfast /path/to/image.iso /dev/sdX 
+ddfast
 ```
+It will then run lsblk for you to choose a target device, after it will prompt you to paste a path to your iso.
 
 ### How to update
 ```bash
