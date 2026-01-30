@@ -8,7 +8,7 @@
 To get started with the installation process you will
 need to curl the repo & make it executable.
 ```bash
-sudo curl -fsSL https://raw.githubusercontent.com/lucysgutz/ddFast/main/ddfast -o /usr/local/bin/ddfast
+sudo curl -fsSL https://raw.githubusercontent.com/imt00dizzy/ddFast/main/ddfast -o /usr/local/bin/ddfast
 sudo chmod +x /usr/local/bin/ddfast
 ```
 
@@ -28,7 +28,7 @@ sudo rm -f /usr/local/bin/ddfast
 
 Then reinstall
 ```bash
-sudo curl -fsSL https://raw.githubusercontent.com/lucysgutz/ddFast/main/ddfast -o /usr/local/bin/ddfast
+sudo curl -fsSL https://raw.githubusercontent.com/imt00dizzy/ddFast/main/ddfast -o /usr/local/bin/ddfast
 sudo chmod +x /usr/local/bin/ddfast
 ```
 
