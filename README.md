@@ -1,4 +1,4 @@
-#  ddFast 1.0.2
+#  ddFast 1.0.3
 
 **ddFast** — a faster more simplified dd, built for iso flashing.
 ---
