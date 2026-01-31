@@ -3,6 +3,8 @@
 **ddFast** — a faster more simplified dd, built for iso flashing.
 ---
 
+### Whats New?
+I added a TUI to simplify it even further and even added automatic iso detection so that ddFast scans your system for any .iso files.
 ###  Install
 
 To get started with the installation process you will
